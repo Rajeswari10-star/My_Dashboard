@@ -1,4 +1,4 @@
-# My Dashboard — React + Vite
+# Rajeswari Reports — React + Vite
 
 A responsive business analytics dashboard for exploring e-commerce sales, marketplace fees, estimated profit, returns, channel performance, and basic data quality. Built with React, Vite, Recharts, and Lucide icons.
 
