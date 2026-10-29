@@ -1,33 +1,42 @@
-# AI-Powered Business Analyst Copilot
+# My Dashboard — React + Vite
 
-A portfolio project for Business Analyst and Data Analyst roles, built with Python, Streamlit, pandas, Plotly, and SQLite.
+A responsive business analytics dashboard for exploring e-commerce sales, marketplace fees, estimated profit, returns, channel performance, and basic data quality. Built with React, Vite, Recharts, and Lucide icons.
 
 ## Features
-- Executive KPIs: gross sales, net revenue, order count, return rate, fees, and estimated profit.
-- Monthly and category sales visualisations.
-- CSV/Excel upload and interactive filters.
-- Rule-based questions about products, categories, sales trends, and returns.
-- Read-only SQLite SQL explorer.
-- Basic data-quality checks and filtered CSV download.
-
-> The current question-answering module is rule-based, not connected to a generative AI API. The included dataset is synthetic and must not be presented as real company data.
+- Responsive KPI dashboard, monthly revenue trend, category mix, and channel comparison
+- Searchable order explorer with CSV export
+- Upload a CSV dataset directly in the browser
+- Rule-based natural-language question interface (not yet connected to an LLM)
+- Return reasons and basic data-quality checks
+- Synthetic sample data and reset-to-demo option
+- Vercel configuration for static Vite deployment
 
 ## Run locally
+Requires Node.js 20+ recommended.
+
 ```bash
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-streamlit run app.py
+npm install
+npm run dev
 ```
 
-## Tech stack
-Python, Streamlit, pandas, Plotly, SQLite, SQL.
+Build and preview:
 
-## Metric notes
-- Recorded return rate = returned rows / non-cancelled rows. This is a demo definition, not necessarily a unit- or value-based return rate.
-- Estimated profit = net revenue - estimated product cost - marketplace fees - shipping cost.
-- Validate business definitions, refunds, taxes, and fee reversals before using real business data.
+```bash
+npm run build
+npm run preview
+```
+
+## Deploy to Vercel
+Import this repository into Vercel, select **Vite**, use `npm run build` as the build command and `dist` as the output directory. The included `vercel.json` sets these values.
+
+## CSV upload
+Common columns supported include `order_id`/`id`, `order_date`/`date`, `gross_sales`/`sales`/`revenue`, `order_status`/`status`, `product_name`/`product`, `marketplace_fee`/`fee`, and `return_reason`/`reason`. Review imported values before interpreting results.
+
+## Metric caveats
+The included dataset is synthetic. Growth percentages are visual demo indicators, not actual period-over-period calculations. Return rate is returned rows divided by non-cancelled rows. Estimated profit is simplified demo data and is not suitable for financial decisions.
+
+## Tech stack
+React · Vite · Recharts · Lucide · CSS
 
 ## Portfolio summary
-Built an interactive analytics application that loads CSV/Excel data, calculates business KPIs, visualises trends, supports common analytical questions, offers a read-only SQL interface, and flags data-quality issues. Next steps include schema mapping, a PostgreSQL connector, and securely grounded LLM answers with SQL validation.
+Built an interactive analytics interface to explore sales performance, category and channel mix, return reasons, marketplace fees, and data quality. Roadmap: validated data layer, real period comparisons, KPI tests, and secured AI-assisted analysis.
